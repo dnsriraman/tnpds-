@@ -1,0 +1,6 @@
+{
+  "name": "TNPDS Connect",
+  "description": "A comprehensive app to locate Tamil Nadu ration shops, check commodity availability, and view shop timings with offline support.",
+  "requestFramePermissions": ["geolocation", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Represents an authenticated system user or customer within TNPDS",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["customer", "staff", "admin"] },
+        "customRoleId": { "type": "string" },
+        "shopId": { "type": "string" },
+        "rationCardNumber": { "type": "string" },
+        "isApproved": { "type": "boolean" }
+      },
+      "required": ["id", "name", "email", "role"]
+    },
+    "RationCard": {
+      "title": "RationCard",
+      "description": "Information about household ration card allocation and metrics",
+      "type": "object",
+      "properties": {
+        "cardNumber": { "type": "string" },
+        "cardType": { "type": "string", "enum": ["PHH", "NPHH", "AYY"] },
+        "headOfFamily": { "type": "string" },
+        "address": { "type": "string" }
+      },
+      "required": ["cardNumber", "cardType", "headOfFamily"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "High integrity event ledger audits to track actions and access metrics",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "action": { "type": "string" },
+        "details": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "userId", "userName", "action", "details", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles with identity contexts and approval flags"
+    },
+    "/rationCards/{cardId}": {
+      "schema": "RationCard",
+      "description": "Publicly searchable household cards"
+    },
+    "/auditLogs/{logId}": {
+      "schema": "AuditLog",
+      "description": "Audit event trace logs for security tracking"
+    }
+  }
+}
