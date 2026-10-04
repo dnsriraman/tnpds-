@@ -73,13 +73,13 @@ Customer / Shopkeeper
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/dnsriraman/tnpds.git
+   git clone https://github.com/dnsriraman/tnpds-.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd tnpds
+   cd tnpds-
    ```
 
 3. Install dependencies:
